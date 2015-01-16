@@ -13,3 +13,9 @@ def bubble_sort(*arr):
         
         
         
+def insertion_sort(*arr):
+    old_list = list(arr)
+    result = []
+    i = 0
+    while (i < len(old_list)):
+        
