@@ -44,7 +44,7 @@ var array_maker = function(num_of_elements,throttle){
 	return result;
 };
 Array.prototype.fast_bubble_sort = function(){
-	var i=0,j=0,place_h,inc=0;
+	var i=0,place_h,inc=0;
 	var array = this;
 	while(i < array.length){
 
@@ -52,14 +52,13 @@ Array.prototype.fast_bubble_sort = function(){
 					place_h = array[i];
 					array[i]=array[i+1];
 					array[i+1]=place_h;
-					inc++;
 				}
+			var j=0
 		while (j<array.length){
 				if (array[j+1] <= array[j]) {
 					place_h = array[j+1];
 					array[j+1] = array[j];
 					array[j] = place_h;
-					inc++;
 
 				}
 				j++;
@@ -70,40 +69,14 @@ Array.prototype.fast_bubble_sort = function(){
 			}
 			//console.log(array);
 			var s=0;
-			if (inc > array.length){ //Stops the function if the array is sorted
 				while (s<array.length){
-					if(array[s]>array[s+1]){
-						break;
-					}
-					else if (array[s]<=array[s+1]) {
-						continue;
-					}
-					else {
-						return array;
+					if (array[s]>array[s+1]){
+						console.log("recursion " + s);
+						array.fast_bubble_sort();
 					}
 					s++;
 				}
-				
-			}
-			var c =0;var recheck = 0; 
-		while (recheck < array.length){//checks the array again
-			if (array[recheck] > array[recheck+1]){
-					place_h = array[i];
-					array[i]=array[i+1];
-					array[i+1]=place_h;
-				}
-
-		while (c<array.length){
-				if (array[c+1] <= array[c]) {
-					place_h = array[c+1];
-					array[c+1] = array[c];
-					array[c] = place_h;
-					}
-					c++;
-		}
-		recheck++;
-		}
-
+		
 return array;
 };/*
 Array.prototype.bubble_sort = function(){
